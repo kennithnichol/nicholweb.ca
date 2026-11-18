@@ -27,14 +27,23 @@ import Base from '../layouts/Base.astro';
         </p>
         <h2>What that buys</h2>
         <ul>
-          <li><strong>Static output.</strong> Every page is prebuilt HTML and CSS, served from Cloudflare's edge.</li>
+          <li><strong>Static output.</strong> Every page is prebuilt HTML and CSS, served from Cloudflare's edge network.</li>
           <li>
             <strong>Content as files.</strong> Case studies are Markdown with a typed schema. Adding one is adding a file,
             and a missing field fails the build instead of breaking a page.
           </li>
           <li><strong>Type-checked builds.</strong> The build runs <code>astro check</code> first, so type errors never deploy.</li>
-          <li><strong>Deploy on push.</strong> Cloudflare Pages builds and publishes every push to the main branch.</li>
+          <li>
+            <strong>Deploy on push.</strong> Cloudflare Pages builds every push; pull requests get a preview URL and
+            a type-checked build in CI before anything reaches production.
+          </li>
         </ul>
+        <h2>Why not my own server</h2>
+        <p>
+          I have one, for projects that need it. A brochure site doesn't. Managed static hosting means no
+          web server to patch, no deploy keys to guard, and rollbacks in one click. Running infrastructure is a cost
+          you take on when a system needs it, not something to do for its own sake.
+        </p>
         <h2>What would change the decision</h2>
         <p>
           If the site needed per-visitor behaviour, authenticated areas or server-side logic beyond a form or an API

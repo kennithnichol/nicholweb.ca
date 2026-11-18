@@ -2,7 +2,7 @@
 
 Source for [nicholweb.ca](https://nicholweb.ca), the site of Ken Nichol, senior full-stack engineer.
 
-Built with [Astro](https://astro.build) as a fully static site and deployed on Cloudflare Pages. The reasoning is written up on the site: [How this site is built](https://nicholweb.ca/how-this-site-is-built).
+Built with [Astro](https://astro.build) as a fully static site, deployed on Cloudflare Pages. The reasoning is written up on the site: [How this site is built](https://nicholweb.ca/how-this-site-is-built).
 
 ## Develop
 
@@ -34,8 +34,12 @@ Case studies are anonymized: describe clients by sector and size, never by name,
 
 ## Deploy
 
-Cloudflare Pages, connected to this repo:
+Cloudflare Pages is connected to this repo and builds every push to `main` (production) and every other branch (preview URL).
 
 - Build command: `npm run build`
 - Output directory: `dist`
-- Environment variable: `NODE_VERSION=22`
+- Environment variable: `NODE_VERSION=24`
+
+`.github/workflows/ci.yml` type-checks and builds pull requests on GitHub as well, so a broken change shows up before merge.
+
+DNS is on Cloudflare. The site uses only the root and `www` records; mail is hosted separately, so MX, SPF, DKIM and DMARC records must not be changed or proxied.

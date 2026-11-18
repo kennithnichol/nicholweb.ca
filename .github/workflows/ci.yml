@@ -1,0 +1,23 @@
+name: CI
+
+# Cloudflare Pages builds and deploys on push by itself.
+# This check type-checks and builds pull requests so broken changes never reach main.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
