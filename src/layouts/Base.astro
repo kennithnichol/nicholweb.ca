@@ -21,7 +21,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{pageTitle}</title>
+    <title>{pageTitle} · {site.business}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -37,7 +37,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="wordmark" href="/">Ken Nichol</a>
+        <a class="wordmark" href="/">Nichol Web Consulting · Ken Nichol</a>
         <nav aria-label="Main">
           <ul>
             {
