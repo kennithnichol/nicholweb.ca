@@ -3,6 +3,7 @@ import '@fontsource-variable/fraunces';
 import '@fontsource-variable/inter';
 import '../styles/global.css';
 import { site, nav } from '../site';
+import EmailLink from '../components/EmailLink.astro';
 
 interface Props {
   title?: string;
@@ -67,7 +68,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
           <p class="muted">{site.role} · {site.location}</p>
         </div>
         <ul class="footer-links">
-          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><EmailLink /></li>
           <li><a href={site.links.linkedin} rel="me">LinkedIn</a></li>
           <li><a href={site.links.github} rel="me">GitHub</a></li>
           <li><a href={site.links.toptal} rel="me">Toptal</a></li>

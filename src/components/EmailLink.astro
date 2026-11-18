@@ -1,0 +1,27 @@
+---
+// Renders an email link without putting the address in the page HTML.
+// The address is stored base64-encoded and reversed; a small script turns it into
+// a real mailto: link in the browser. Scrapers reading raw HTML find nothing.
+import { site } from '../site';
+
+interface Props {
+  class?: string;
+  label?: string;
+}
+
+const { class: className, label } = Astro.props;
+const encoded = Buffer.from(site.email).toString('base64').split('').reverse().join('');
+---
+
+<a class:list={['email-link', className]} data-e={encoded} data-label={label ?? ''} href="/about">
+  {label ?? 'Email'}
+</a>
+
+<script>
+  for (const el of document.querySelectorAll<HTMLAnchorElement>('a.email-link[data-e]')) {
+    const address = atob([...(el.dataset.e ?? '')].reverse().join(''));
+    el.href = `mailto:${address}`;
+    if (!el.dataset.label) el.textContent = address;
+    el.removeAttribute('data-e');
+  }
+</script>

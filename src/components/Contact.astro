@@ -1,5 +1,6 @@
 ---
 import { site } from '../site';
+import EmailLink from './EmailLink.astro';
 ---
 
 <section class="contact" id="contact">
@@ -14,7 +15,7 @@ import { site } from '../site';
         about whether I'm the right person for it.
       </p>
       <div class="button-row">
-        <a class="button" href={`mailto:${site.email}`}>Email {site.email}</a>
+        <EmailLink class="button" label="Email me" />
         <a href={site.links.linkedin}>LinkedIn</a>
       </div>
     </div>
