@@ -1,0 +1,24 @@
+{
+  "name": "nicholweb.ca",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ken Nichol — senior full-stack engineer. Source for nicholweb.ca.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/sitemap": "^3.7.5",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "astro": "^7.4.12",
+    "typescript": "^6.0.3"
+  }
+}

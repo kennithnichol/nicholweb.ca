@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import Contact from '../components/Contact.astro';
+import { site } from '../site';
+---
+
+<Base title="About" description="Ken Nichol: senior full-stack engineer on Vancouver Island, building for the web since 2004.">
+  <section>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">About</p>
+        <h1>Ken Nichol</h1>
+        <p class="muted">{site.role}<br />{site.location}</p>
+      </div>
+      <div class="prose">
+        <p class="lede" style="max-width: none">
+          I'm the engineer teams bring in when a web platform still matters but has become slow, risky or expensive to
+          change.
+        </p>
+        <h2>Background</h2>
+        <p>
+          I started doing professional web work in 2004 at North Island Studios, and went independent as Nichol Web
+          Consulting in 2008. Most of those years were spent deep in PHP and WordPress: custom themes and plugins,
+          integrations, migrations and long-term care of sites that businesses ran on.
+        </p>
+        <p>
+          I joined Toptal in 2019 as a WordPress developer and later added its full-stack specialization. My recent
+          engagements have been modernization work: moving an enterprise platform to headless Next.js and Payload CMS,
+          upgrading theme frameworks across major versions, and building the CI/CD pipelines that make deployments
+          boring.
+        </p>
+        <p>
+          I'm also a Star Mentor at Zero To Mastery, where I help developers learning to code build solid
+          foundations. Explaining things clearly is a large part of the job, with juniors and with executives.
+        </p>
+
+        <h2>How I work</h2>
+        <ul>
+          <li>
+            <strong>I treat the existing system as the spec.</strong> Before replacing anything, I find out what it actually
+            does, including what nobody wrote down.
+          </li>
+          <li>
+            <strong>I'm straight about scope.</strong> If something is outside what I've done before, I'll say so before we
+            start, not after.
+          </li>
+          <li>
+            <strong>I document as I go.</strong> Runbooks and decision notes are part of the deliverable, so your team isn't
+            dependent on me.
+          </li>
+          <li>
+            <strong>I use AI tools with review.</strong> Claude Code and Cursor make me faster; they don't decide what ships.
+          </li>
+        </ul>
+
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href={site.links.toptal}>Toptal profile</a></li>
+          <li><a href={site.links.linkedin}>LinkedIn</a></li>
+          <li><a href={site.links.github}>GitHub</a>, including <a href="https://github.com/kennithnichol/nicholweb.ca">the source for this site</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <Contact />
+</Base>

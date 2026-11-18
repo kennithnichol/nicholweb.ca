@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Contact from '../components/Contact.astro';
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Ken Nichol · Senior full-stack engineer</p>
+      <h1>I modernize web platforms that have become hard to change.</h1>
+      <p class="lede">
+        Legacy WordPress and PHP to TypeScript, Next.js and headless CMS, shipped through CI/CD pipelines that make
+        deploys routine. Building for the web since 2004, consulting independently since 2008.
+      </p>
+      <div class="button-row">
+        <a class="button" href="/work">See the work</a>
+        <a href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="services-heading">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">What I do</p>
+        <h2 id="services-heading">Four kinds of work I'm brought in for</h2>
+      </div>
+      <ol class="services">
+        <li>
+          <div>
+            <h3>Platform modernization</h3>
+            <p>
+              Moving long-lived WordPress and PHP platforms to headless architectures with Next.js and Payload CMS,
+              without losing the behaviour your editors and customers depend on, including the undocumented parts.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Deployment pipelines</h3>
+            <p>
+              CI/CD with GitHub Actions, GitLab and Bitbucket, so releases stop depending on one person's laptop.
+              Documented, so your team can run them without me.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>WordPress engineering</h3>
+            <p>
+              Not every site should leave WordPress. Custom themes and plugins, Sage and Acorn upgrades, performance
+              work and careful maintenance for the ones that should stay.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>AI-assisted delivery</h3>
+            <p>
+              I use Claude Code and Cursor to move faster, and review every line against what the system has to
+              do. You get the speed without inheriting code nobody understands.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="work-heading">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2 id="work-heading">Recent engagements</h2>
+        <p class="muted">
+          Most of my work is under NDA, so clients are described by sector rather than named.
+        </p>
+      </div>
+      <ul class="work-list">
+        {
+          work.map((entry) => (
+            <li>
+              <WorkCard entry={entry} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="about-heading">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 id="about-heading">Twenty years of systems that had to keep running</h2>
+      </div>
+      <div class="prose">
+        <p>
+          I've spent two decades in the PHP and WordPress ecosystem, and my recent work has been moving platforms onto
+          TypeScript, React, Next.js and Node. Most of my work has been on platforms that were already in production:
+          upgrading them, untangling them, or replacing them without breaking what people relied on.
+        </p>
+        <p>
+          I've worked through Toptal since 2019, and I'm a Star Mentor at Zero To Mastery, helping developers build
+          strong foundations. <a href="/about">More about me →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+</Base>

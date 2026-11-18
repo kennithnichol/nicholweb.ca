@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="How this site is built"
+  description="The technical decisions behind nicholweb.ca, and why a marketing site doesn't need an application framework."
+>
+  <section>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Colophon</p>
+        <h1>How this site is built</h1>
+        <p class="muted">A short decision record. The source is public on GitHub.</p>
+      </div>
+      <div class="prose">
+        <h2>The decision: Astro, not Next.js</h2>
+        <p>
+          Most of my recent client work is in Next.js, so it would have been the obvious choice. It's also the wrong
+          one here. This site is a handful of pages and some case studies. Nothing on it is personalised, nothing changes
+          per request, and there's no application state.
+        </p>
+        <p>
+          For that, an application framework adds a JavaScript runtime and build complexity that visitors pay for and
+          get nothing back from. <a href="https://astro.build">Astro</a> renders everything to static HTML at build time
+          and ships no client-side JavaScript unless a page asks for it.
+        </p>
+        <h2>What that buys</h2>
+        <ul>
+          <li><strong>Static output.</strong> Every page is prebuilt HTML and CSS, served from Cloudflare's edge.</li>
+          <li>
+            <strong>Content as files.</strong> Case studies are Markdown with a typed schema. Adding one is adding a file,
+            and a missing field fails the build instead of breaking a page.
+          </li>
+          <li><strong>Type-checked builds.</strong> The build runs <code>astro check</code> first, so type errors never deploy.</li>
+          <li><strong>Deploy on push.</strong> Cloudflare Pages builds and publishes every push to the main branch.</li>
+        </ul>
+        <h2>What would change the decision</h2>
+        <p>
+          If the site needed per-visitor behaviour, authenticated areas or server-side logic beyond a form or an API
+          endpoint, I'd reach for a full application framework. Until then, the simplest thing that works is the right
+          architecture.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

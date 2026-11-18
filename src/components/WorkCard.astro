@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const { title, summary, client, years } = entry.data;
+---
+
+<a class="work-card" href={`/work/${entry.id}`}>
+  <p class="work-meta">{client} · {years}</p>
+  <h3>{title}</h3>
+  <p>{summary}</p>
+  <span class="more">Read the case study →</span>
+</a>
